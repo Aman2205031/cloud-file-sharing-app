@@ -100,16 +100,16 @@
     </style>
 </head>
 <body>
-    <!-- Sidebar Navigation -->
+   
     <div class="sidebar" id="sidebar">
         <h2>☁️ Cloud Storage</h2>
         <a href="/dashboard">📂 My Cloud</a>
         <a href="/logout">🚪 Logout</a>
     </div>
 
-    <!-- Main Content -->
+  
     <div class="content">
-        <!-- Topbar -->
+     
         <div class="topbar">
             <div class="topbar-left">
                 <button class="icon-btn" onclick="toggleSidebar()">
@@ -124,14 +124,14 @@
 
         <h2>Welcome, {{ username }} 👋</h2>
 
-        <!-- Upload Form -->
+        
         <form id="upload-form" enctype="multipart/form-data">
             <input type="file" name="file" id="file-input" required>
             <button type="submit">📤 Upload</button>
         </form>
         <div id="upload-message"></div>
 
-        <!-- File List -->
+    
         <div class="file-list" id="fileList">
             {% for file in files %}
             <div class="file-card" id="file-{{ file.filename|replace(' ', '_') }}">

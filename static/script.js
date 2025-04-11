@@ -14,8 +14,8 @@ document.getElementById('upload-form').addEventListener('submit', function (e) {
     if (data.success) {
       messageDiv.textContent = '✅ File uploaded successfully!';
       messageDiv.style.color = 'green';
-      fileInput.value = ''; // Clear file input
-      fetchFiles(); // Refresh file list
+      fileInput.value = ''; 
+      fetchFiles(); 
     } else {
       messageDiv.textContent = `❌ ${data.error}`;
       messageDiv.style.color = 'red';
@@ -62,7 +62,7 @@ function downloadFile(filename) {
     });
 }
 
-// New previewFile function
+
 function previewFile(filename) {
   fetch(`/preview/${filename}`)
     .then(response => response.json())

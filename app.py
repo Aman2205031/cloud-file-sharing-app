@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv()  # Load environment variables from the .env file
 
 import os
 import uuid
@@ -12,6 +12,24 @@ from authlib.integrations.flask_client import OAuth
 from azure.storage.blob import BlobServiceClient, generate_blob_sas, BlobSasPermissions
 from datetime import datetime, timedelta
 import sqlite3
+import pyodbc
+
+# Azure SQL Database connection details
+server = os.getenv("AZURE_SQL_SERVER")
+database = os.getenv("AZURE_SQL_DATABASE")
+username = os.getenv("AZURE_SQL_USERNAME")
+password = os.getenv("AZURE_SQL_PASSWORD")
+driver = '{ODBC Driver 17 for SQL Server}'
+
+# Connection string
+connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
+
+# Attempt to connect to the database
+try:
+    conn = pyodbc.connect(connection_string)
+    print("✅ Connected to Azure SQL Database successfully!")
+except Exception as e:
+    print("❌ Error connecting to database:", e)
 
 # ---------- Flask App Configuration ----------
 app = Flask(__name__)
